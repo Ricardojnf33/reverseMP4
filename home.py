@@ -1,6 +1,7 @@
 import streamlit as st
 import cv2
 import numpy as np
+from io import BytesIO
 
 # Function to create a reversed video and integrate it with the original video
 def reverse_and_double_video(input_file, output_file):
@@ -52,10 +53,12 @@ if uploaded_file is not None:
 
     # Display the original video
     st.subheader("Original Video")
-    st.video(input_video_filename)
+    st.video(uploaded_file.read())
 
     # Display the reversed and doubled video
     st.subheader("Reversed and Doubled Video")
-    st.video(output_video_filename)
+    reversed_doubled_video = open(output_video_filename, "rb").read()
+    st.video(reversed_doubled_video)
 
 st.markdown("Powered by Cheetah Data Science")
+
