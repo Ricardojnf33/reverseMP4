@@ -1,7 +1,6 @@
 import streamlit as st
 import cv2
 import numpy as np
-from IPython.display import HTML
 
 # Function to create a reversed video and integrate it with the original video
 def reverse_and_double_video(input_file, output_file):
@@ -53,12 +52,10 @@ if uploaded_file is not None:
 
     # Display the original video
     st.subheader("Original Video")
-    video_path = f"./{input_video_filename}"
-    st.video(video_path)
+    st.video(input_video_filename)
 
     # Display the reversed and doubled video
     st.subheader("Reversed and Doubled Video")
-    combined_video_path = f"./{output_video_filename}"
-    st.video(combined_video_path)
+    st.video(output_video_filename)
 
 st.markdown("Powered by Cheetah Data Science")
