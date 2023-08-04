@@ -41,8 +41,6 @@ if uploaded_file is not None:
     except ImportError:
         st.warning("A biblioteca moviepy não está instalada. Instalando a biblioteca...")
 
-        !pip install moviepy
-
         from moviepy.editor import VideoFileClip
 
     # Realiza ações na barra lateral
