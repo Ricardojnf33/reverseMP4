@@ -49,16 +49,18 @@ if uploaded_file is not None:
 
     # Reverse the video, integrate with original, and save the combined video file
     output_video_filename = "reversed_and_doubled_" + input_video_filename
-    reverse_and_double_video(input_video_filename, output_video_filename)
+    reverse_and_double_video(uploaded_file, output_video_filename)
 
     # Display the original video
     st.subheader("Original Video")
-    st.video(uploaded_file.read())
+    st.video(uploaded_file)
 
     # Display the reversed and doubled video
     st.subheader("Reversed and Doubled Video")
-    reversed_doubled_video = open(output_video_filename, "rb").read()
+    with open(output_video_filename, "rb") as f:
+        reversed_doubled_video = f.read()
     st.video(reversed_doubled_video)
 
 st.markdown("Powered by Cheetah Data Science")
+
 
